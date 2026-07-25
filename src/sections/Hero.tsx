@@ -92,6 +92,22 @@ export default function Hero() {
             </div>
           </motion.div>
 
+          {/* Storefront image on mobile */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-10 lg:hidden"
+          >
+            <div className="rounded-xl overflow-hidden bg-[#f7f3eb] border border-evergreen/10 shadow-md p-2">
+              <img
+                src="/storefront.jpg"
+                alt="Evergreen Barber Shop storefront"
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
+          </motion.div>          
+
           {/* Hero visual: storefront image on desktop */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -133,26 +149,26 @@ export default function Hero() {
                 <p className="text-xs text-charcoal/50 mt-1">100+ Google Reviews</p>
               </motion.div>
             </div>
+
+            {/* Storefront image on mobile: below text content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              className="mt-10 lg:hidden"
+            >
+              <div className="relative rounded-xl overflow-hidden shadow-md border border-evergreen/10">
+                <img
+                  src="/storefront.jpg"
+                  alt="Evergreen Barber Shop storefront on Orcutt Road, Santa Maria"
+                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent" aria-hidden="true" />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
-
-        {/* Storefront image on mobile: below text content */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="mt-10 lg:hidden"
-        >
-          <div className="relative rounded-xl overflow-hidden shadow-md border border-evergreen/10">
-            <img
-              src="/storefront.jpg"
-              alt="Evergreen Barber Shop storefront on Orcutt Road, Santa Maria"
-              loading="lazy"
-              className="w-full h-64 sm:h-80 object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent" aria-hidden="true" />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
