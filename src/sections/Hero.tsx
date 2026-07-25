@@ -33,7 +33,8 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="relative z-10"
           >
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-charcoal leading-tight mb-6">
               Santa Maria's{" "}
@@ -91,43 +92,26 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Hero visual */}
+          {/* Hero visual: storefront image on desktop */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
             className="hidden lg:block"
           >
             <div className="relative">
-              {/* Decorative frame */}
-              <div className="aspect-[4/5] bg-gradient-to-br from-evergreen/10 to-tan/30 rounded-2xl border-2 border-evergreen/10 flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  {/* Classic barber icon */}
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-evergreen/10 flex items-center justify-center">
-                    <svg
-                      className="w-16 h-16 text-evergreen"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
-                      />
-                    </svg>
-                  </div>
-                  <p className="font-serif text-2xl font-bold text-evergreen mb-2">
-                    Evergreen
-                  </p>
-                  <p className="text-charcoal/50 text-sm">Barber Shop</p>
-                  <div className="mt-6 h-1 w-16 barber-stripe opacity-60 mx-auto" aria-hidden="true" />
-                </div>
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-lg border-2 border-evergreen/10">
+                <img
+                  src="/storefront.jpg"
+                  alt="Evergreen Barber Shop storefront on Orcutt Road, Santa Maria"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center"
+                />
+                {/* Subtle dark overlay at the bottom for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent" aria-hidden="true" />
               </div>
 
-              {/* Floating card */}
+              {/* Floating review card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -151,6 +135,24 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
+
+        {/* Storefront image on mobile: below text content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="mt-10 lg:hidden"
+        >
+          <div className="relative rounded-xl overflow-hidden shadow-md border border-evergreen/10">
+            <img
+              src="/storefront.jpg"
+              alt="Evergreen Barber Shop storefront on Orcutt Road, Santa Maria"
+              loading="lazy"
+              className="w-full h-64 sm:h-80 object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent" aria-hidden="true" />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

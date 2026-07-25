@@ -1,5 +1,29 @@
 import SectionHeading from "~/components/SectionHeading";
 import { motion } from "framer-motion";
+import { Heart, Scissors, Users, Sparkles } from "lucide-react";
+
+const featureCards = [
+  {
+    icon: Heart,
+    label: "Friendly Service",
+    description: "Welcoming, genuine care for every customer who walks in.",
+  },
+  {
+    icon: Scissors,
+    label: "Professional Haircuts",
+    description: "Skilled barbers who take pride in every cut and detail.",
+  },
+  {
+    icon: Users,
+    label: "Family-Friendly",
+    description: "A comfortable space for all ages, from kids to seniors.",
+  },
+  {
+    icon: Sparkles,
+    label: "Classic & Modern",
+    description: "Timeless techniques with today's styles, done right.",
+  },
+];
 
 export default function About() {
   return (
@@ -15,17 +39,59 @@ export default function About() {
         />
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+          {/* LEFT: text + feature cards */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="space-y-8"
           >
-            <div className="aspect-square bg-gradient-to-br from-evergreen/5 to-tan/20 rounded-2xl flex items-center justify-center border border-evergreen/5">
+            <p className="text-charcoal/70 leading-relaxed text-base sm:text-lg">
+              At Evergreen Barber Shop, we believe a great haircut is about more
+              than just style — it's about confidence, care, and community. Every
+              visit is an opportunity to connect, relax, and leave feeling your
+              best. That's the Evergreen standard, and it's what makes our shop
+              feel like home.
+            </p>
+
+            {/* 2×2 feature cards grid */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {featureCards.map((card, i) => (
+                <motion.div
+                  key={card.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.15 * i }}
+                  className="bg-cream/50 rounded-xl p-3 sm:p-4 border border-tan/20 hover:border-evergreen/20 hover:shadow-sm transition-all duration-300"
+                >
+                  <div className="w-9 h-9 rounded-full bg-evergreen/10 flex items-center justify-center mb-2">
+                    <card.icon className="w-4 h-4 text-evergreen" aria-hidden="true" />
+                  </div>
+                  <h4 className="font-semibold text-sm text-charcoal mb-0.5">
+                    {card.label}
+                  </h4>
+                  <p className="text-xs text-charcoal/50 leading-snug">
+                    {card.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* RIGHT: decorative visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="aspect-square bg-gradient-to-br from-evergreen/5 to-tan/20 rounded-2xl flex items-center justify-center border border-evergreen/10 shadow-sm">
               <div className="text-center p-8">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-evergreen/10 flex items-center justify-center">
+                <div className="w-28 h-28 mx-auto mb-5 rounded-full bg-evergreen/10 flex items-center justify-center border-2 border-evergreen/10">
                   <svg
-                    className="w-12 h-12 text-evergreen"
+                    className="w-14 h-14 text-evergreen"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -39,41 +105,15 @@ export default function About() {
                     />
                   </svg>
                 </div>
-                <p className="font-serif text-xl font-semibold text-evergreen">
+                <p className="font-serif text-2xl font-bold text-evergreen">
                   Serving Santa Maria
                 </p>
+                <p className="text-charcoal/40 text-sm mt-2">
+                  Proudly part of the community
+                </p>
+                <div className="mt-6 h-1 w-16 barber-stripe opacity-60 mx-auto" aria-hidden="true" />
               </div>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="space-y-5"
-          >
-            <p className="text-charcoal/70 leading-relaxed">
-              At Evergreen Barber Shop, we believe a great haircut is about more
-              than just style — it's about confidence, care, and community. Our
-              team is dedicated to providing every customer with a comfortable,
-              welcoming experience from the moment they walk through the door.
-            </p>
-            <p className="text-charcoal/70 leading-relaxed">
-              We take pride in our craft, whether it's a classic cut, a clean
-              fade, or a traditional straight razor shave. Every service is
-              performed with attention to detail and a genuine commitment to
-              getting it right. Our shop is a place where families feel at home,
-              where conversations flow as easily as the clippers, and where
-              everyone — from toddlers getting their first haircut to seniors
-              maintaining their signature look — is treated like family.
-            </p>
-            <p className="text-charcoal/70 leading-relaxed">
-              As a proud part of the Santa Maria community, we're honored to be
-              a place where neighbors connect, stories are shared, and people
-              leave looking and feeling their best. That's the Evergreen
-              standard.
-            </p>
           </motion.div>
         </div>
       </div>

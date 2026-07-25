@@ -26,6 +26,10 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://evergreenbarbershop.com" },
       { property: "og:locale", content: "en_US" },
+      // TODO: Add og:image meta tag with a real Open Graph image URL once available
+      // { property: "og:image", content: "https://evergreenbarbershop.com/og-image.jpg" },
+      // { property: "og:image:width", content: "1200" },
+      // { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Evergreen Barber Shop | Santa Maria's Trusted Family Barbershop" },
       { name: "twitter:description", content: "Quality haircuts, clean fades, beard grooming, and classic barbering with friendly service." },
