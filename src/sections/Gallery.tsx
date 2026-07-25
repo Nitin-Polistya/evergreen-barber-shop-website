@@ -2,6 +2,7 @@ import { useState } from "react";
 import SectionHeading from "~/components/SectionHeading";
 import Lightbox from "~/components/Lightbox";
 import { motion } from "framer-motion";
+import { Camera, ZoomIn } from "lucide-react";
 
 const galleryImages = [
   {
@@ -100,7 +101,7 @@ export default function Gallery() {
             >
               <button
                 onClick={() => openLightbox(i)}
-                className="block w-full overflow-hidden rounded-xl group focus-visible:outline-2 focus-visible:outline-evergreen"
+                className="relative block w-full overflow-hidden rounded-xl group focus-visible:outline-2 focus-visible:outline-evergreen focus-visible:outline-offset-2"
                 aria-label={`View larger image: ${img.alt}`}
               >
                 <img
@@ -109,8 +110,28 @@ export default function Gallery() {
                   width={img.w}
                   height={img.h}
                   loading="lazy"
-                  className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto object-cover rounded-xl transition-transform duration-500 ease-out group-hover:scale-105"
                 />
+
+                {/* "Photo" label overlay */}
+                <div
+                  className="absolute top-2 left-2 flex items-center gap-1 px-2 py-1 bg-charcoal/50 backdrop-blur-sm rounded-md text-cream/90 text-[10px] font-medium"
+                  aria-hidden="true"
+                >
+                  <Camera className="w-3 h-3" />
+                  Photo
+                </div>
+
+                {/* Hover overlay with caption and zoom indicator */}
+                <div
+                  className="absolute inset-0 rounded-xl bg-gradient-to-t from-charcoal/70 via-charcoal/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex flex-col items-center justify-end pb-4"
+                  aria-hidden="true"
+                >
+                  <ZoomIn className="w-6 h-6 text-cream/90 mb-2" />
+                  <span className="text-cream/90 text-xs px-3 text-center leading-snug">
+                    Click to expand
+                  </span>
+                </div>
               </button>
             </motion.div>
           ))}

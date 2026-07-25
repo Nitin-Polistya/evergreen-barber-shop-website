@@ -24,8 +24,8 @@ export default function Footer() {
       {/* Barber pole accent stripe */}
       <div className="h-1 barber-stripe opacity-30" aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -68,23 +68,27 @@ export default function Footer() {
             <h3 className="font-serif font-semibold text-cream text-lg mb-4">
               Visit Us
             </h3>
-            <div className="space-y-3 text-sm">
+            <div className="space-y-4 text-sm">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-tan-light mt-0.5 shrink-0" aria-hidden="true" />
-                <span className="text-cream/70">
+                <span className="text-cream/70 leading-relaxed">
                   3420 #101 Orcutt Rd<br />
                   Santa Maria, CA 93455
                 </span>
               </div>
+
+              {/* Prominent phone number */}
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-tan-light shrink-0" aria-hidden="true" />
+                <Phone className="w-5 h-5 text-tan-light shrink-0" aria-hidden="true" />
                 <a
                   href="tel:+18059374545"
-                  className="text-cream/70 hover:text-cream transition-colors"
+                  className="text-cream font-bold text-xl sm:text-2xl tracking-wide transition-colors hover:text-tan-light"
+                  aria-label="Call Evergreen Barber Shop at (805) 937-4545"
                 >
                   (805) 937-4545
                 </a>
               </div>
+
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-tan-light mt-0.5 shrink-0" aria-hidden="true" />
                 <div className="text-cream/70 text-xs leading-relaxed">
@@ -97,7 +101,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-cream/10 text-center text-cream/40 text-xs">
+        <div className="mt-14 pt-6 border-t border-cream/10 text-center text-cream/40 text-xs">
           &copy; {new Date().getFullYear()} Evergreen Barber Shop. All rights reserved.
         </div>
       </div>
