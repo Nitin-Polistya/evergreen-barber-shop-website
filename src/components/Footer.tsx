@@ -103,6 +103,10 @@ export default function Footer() {
 
         <div className="mt-14 pt-6 border-t border-cream/10 text-center text-cream/40 text-xs">
           &copy; {new Date().getFullYear()} Evergreen Barber Shop. All rights reserved.
+          <div className="mt-4 text-cream/30 text-[10px] leading-relaxed max-w-md mx-auto">
+            <p className="font-medium">Demo Website — Created by Nitin Sharma.</p>
+            <p>This is an unofficial demonstration website and is not affiliated with, endorsed by, or officially associated with Evergreen Barber Shop.</p>
+          </div>
         </div>
       </div>
     </footer>
